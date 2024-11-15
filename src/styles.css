@@ -1,10 +1,13 @@
 html,
 body {
   height: 100%;
-  font-size: 15px;
+  font-size: 16x;
 }
 body {
-  margin: 3rem;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: gainsboro;
+}
+
+body {
+  margin: 3rem;
 }
