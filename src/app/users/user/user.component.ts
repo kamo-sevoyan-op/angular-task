@@ -12,8 +12,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { User, Gender } from './user.model';
+import { Gender } from './user.model';
 import { UsersService } from '../users.service';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -63,7 +64,7 @@ export class UserComponent implements OnInit {
     lastName: new FormControl('', {
       validators: [Validators.required],
     }),
-    isActivated: new FormControl('', {
+    status: new FormControl('', {
       validators: [Validators.required],
     }),
     profileImageUrl: new FormControl('', {
@@ -87,18 +88,39 @@ export class UserComponent implements OnInit {
   });
 
   setValues() {
-    let { id, ...rest } = this.usersService.getDataById(this.userId())!;
-
-    let result = { ...rest, dateOfBirth: new Date(rest.dateOfBirth!) };
-    this.form.setValue(result);
+    let user = this.usersService.getDataById(this.userId())!;
+    console.log(`🟢 ${user}`)
+    let result = { ...user, dateOfBirth: new Date(user.dateOfBirth!) };
+    this.form.patchValue(result);
   }
 
   ngOnInit(): void {
     this.setValues();
   }
-}
 
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+  onSubmit() {
+    if (this.form.valid) {
+      console.log(`🟢 Form is valid, submitting.`);
+
+      const result = {
+        email: this.form.value.email!,
+        dateOfBirth: this.form.value.dateOfBirth!.toISOString(), // TODO check it later
+        firstName: this.form.value.firstName!,
+        middleName: this.form.value.middleName!,
+        lastName: this.form.value.lastName!,
+        status: this.form.value.status!,
+        profileImageUrl: this.form.value.profileImageUrl!,
+        nationality: this.form.value.nationality!,
+        phoneNumber: this.form.value.phoneNumber!,
+        gender: this.form.value.gender!,
+        mainLanguage: this.form.value.mainLanguage!,
+        recitations: this.form.value.recitations!,
+      };
+
+      this.usersService.updateUserData(this.userId(), result);
+    }
+  }
+}
 
 function invalidDateValidator(
   control: AbstractControl

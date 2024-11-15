@@ -1,6 +1,6 @@
 <h2>User Details</h2>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   
   <div class="grid-container">
 
@@ -79,11 +79,11 @@
 
     <mat-form-field floatLabel="always" appearance="outline">
       <mat-label>Is Activated</mat-label>
-      <mat-select matInput required [formControl]="form.controls.isActivated">
+      <mat-select matInput required [formControl]="form.controls.status">
         <mat-option value="activated">Activated</mat-option>
         <mat-option value="not-Activated">Not Activated</mat-option>
       </mat-select>
-      @if (form.controls.isActivated.hasError('required')) {
+      @if (form.controls.status.hasError('required')) {
         <mat-error>Is Activated is <strong>required</strong></mat-error>
       }
     </mat-form-field>
@@ -167,6 +167,7 @@
 
   <button
     mat-raised-button
+    extended
     type="submit"
     [disabled]="form.invalid"
     class="wide"
