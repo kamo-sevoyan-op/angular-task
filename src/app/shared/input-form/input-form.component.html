@@ -1,0 +1,161 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="grid-container">
+    <mat-form-field floatLabel="always" appearance="outline" class="user-input">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        required
+        [formControl]="form.controls.email"
+      />
+      @if (form.controls.email.hasError('email') &&
+      !form.controls.email.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+      } @if (form.controls.email.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput required [formControl]="form.controls.dateOfBirth" />
+      @if (form.controls.dateOfBirth.hasError('invalidDate')) {
+      <mat-error>Invalid date</mat-error>
+      } @if (form.controls.dateOfBirth.hasError('required')) {
+      <mat-error>Date of birth is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        [formControl]="form.controls.firstName"
+      />
+      @if (form.controls.firstName.hasError('required')) {
+      <mat-error>First name is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>Middle Name</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        [formControl]="form.controls.middleName"
+      />
+      @if (form.controls.middleName.hasError('required')) {
+      <mat-error>Middle name is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        [formControl]="form.controls.lastName"
+      />
+      @if (form.controls.lastName.hasError('required')) {
+      <mat-error>Last name is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>Is Activated</mat-label>
+      <mat-select matInput required [formControl]="form.controls.status">
+        <mat-option value="Active">Activated</mat-option>
+        <mat-option value="Inactive">Deactivated</mat-option>
+      </mat-select>
+      @if (form.controls.status.hasError('required')) {
+      <mat-error>Is Activated is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="auto" appearance="outline">
+      <mat-label>Profile Image Url</mat-label>
+      <input matInput required [formControl]="form.controls.profileImageUrl" />
+      @if (form.controls.profileImageUrl.hasError('invalidUrl')){
+      <mat-error>Invalid url</mat-error>
+      } @if (form.controls.profileImageUrl.hasError('required')) {
+      <mat-error>Profile image url is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="auto" appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input
+        type="tel"
+        matInput
+        required
+        [formControl]="form.controls.phoneNumber"
+      />
+      @if (form.controls.phoneNumber.hasError('required')) {
+      <mat-error>Phone number is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="auto" appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select matInput required [formControl]="form.controls.gender">
+        @for (elem of genders; track elem.name){
+        <mat-option [value]="elem.value">{{ elem.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="auto" appearance="outline">
+      <mat-label>Main Language</mat-label>
+      <mat-select matInput required [formControl]="form.controls.mainLanguage">
+        @for (elem of languages; track elem.name){
+        <mat-option [value]="elem.value">{{ elem.name }}</mat-option>
+        }
+      </mat-select>
+
+      @if (form.controls.mainLanguage.hasError('required')) {
+      <mat-error>Main language is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-label>Nationality</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        [formControl]="form.controls.nationality"
+      />
+
+      @if (form.controls.nationality.hasError('required')) {
+      <mat-error>Nationality is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline" class="nnk">
+      <mat-label>Recitations</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        [formControl]="form.controls.recitations"
+      />
+      @if (form.controls.recitations.hasError('required')) {
+      <mat-error>Recitations is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <button
+    mat-raised-button
+    extended
+    type="submit"
+    [disabled]="form.invalid"
+    class="wide"
+  >
+    Submit
+  </button>
+</form>
