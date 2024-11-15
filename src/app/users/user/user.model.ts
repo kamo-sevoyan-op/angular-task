@@ -1,16 +1,16 @@
 export type Gender = 'male' | 'female';
 
 export interface User {
-  email: string | null;
-  dateOfBirth: string | null;
-  firstName: string | null;
-  middleName: string | null;
-  lastName: string | null;
-  isActivated: string | null;
-  profileImageUrl: string | null;
-  nationality: string | null;
-  phoneNumber: string | null;
-  gender: string | null;
-  mainLanguage: string | null;
-  recitations: string | null;
+  email: string;
+  dateOfBirth: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  status: string;
+  profileImageUrl: string;
+  nationality: string;
+  phoneNumber: string;
+  gender: string;
+  mainLanguage: string;
+  recitations: string;
 }
