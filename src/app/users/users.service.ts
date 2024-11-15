@@ -7,35 +7,38 @@ import { filter } from 'rxjs';
 })
 export class UsersService {
   private data = new Map<string, User>();
+  private maxIndex: number = 1;
 
   constructor() {
     this.data.set('0', {
-      email: 'kamo.sevoyan.am@gmail.com',
-      dateOfBirth: '1998 06 13',
-      firstName: 'Kamo',
-      middleName: 'Koryun',
-      lastName: 'Sevoyan',
+      email: 'albert.einstein.ge@gmail.ge',
+      dateOfBirth: '1921 11 06',
+      firstName: 'Albert',
+      middleName: 'Einstein',
+      lastName: 'Einstein',
       status: 'Active',
-      profileImageUrl: 'localhost:4000/img.png',
-      nationality: 'armenian',
-      phoneNumber: '+37493047450',
+      profileImageUrl:
+        'https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg',
+      nationality: 'german',
+      phoneNumber: '+123456789',
       gender: 'male',
-      mainLanguage: 'en',
+      mainLanguage: 'ge',
       recitations: 'none',
     });
 
     this.data.set('1', {
-      email: 'adam.eva.snake@heaven.jw',
+      email: 'max.plank.ge@gmail.ge',
       dateOfBirth: '1967 1 1',
-      firstName: 'Adam',
-      middleName: 'Eva',
-      lastName: 'Snake',
+      firstName: 'Max',
+      middleName: 'Planck',
+      lastName: 'Planck',
       status: 'Active',
-      profileImageUrl: 'localhost:4000/img.png',
-      nationality: 'armenian',
-      phoneNumber: '+37493047450',
+      profileImageUrl:
+        'https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg',
+      nationality: 'german',
+      phoneNumber: '+123456789',
       gender: 'male',
-      mainLanguage: 'en',
+      mainLanguage: 'ge',
       recitations: 'none',
     });
   }
@@ -58,5 +61,9 @@ export class UsersService {
     }));
 
     return userArray;
+  }
+
+  addUser(user: User) {
+    this.data.set((++this.maxIndex).toString(), user);
   }
 }
