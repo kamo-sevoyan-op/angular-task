@@ -17,10 +17,23 @@
 
     <mat-form-field floatLabel="always" appearance="outline">
       <mat-label>Date Of Birth</mat-label>
-      <input matInput required [formControl]="form.controls.dateOfBirth" />
-      @if (form.controls.dateOfBirth.hasError('invalidDate')) {
+
+      <input
+        required
+        matInput
+        [matDatepicker]="picker"
+        [formControl]="form.controls.dateOfBirth"
+      />
+
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+      </mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+
+      @if (form.controls.dateOfBirth.hasError('matDatepickerParse')) {
       <mat-error>Invalid date</mat-error>
-      } @if (form.controls.dateOfBirth.hasError('required')) {
+      } @if (!form.controls.dateOfBirth.hasError('matDatepickerParse') &&
+      form.controls.dateOfBirth.hasError('required')) {
       <mat-error>Date of birth is <strong>required</strong></mat-error>
       }
     </mat-form-field>

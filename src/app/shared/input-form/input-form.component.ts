@@ -13,6 +13,7 @@ import { MatOption } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Gender, User } from '../../users/user/user.model';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-input-form',
@@ -26,6 +27,7 @@ import { Gender, User } from '../../users/user/user.model';
     MatSelect,
     MatOption,
     MatButtonModule,
+    MatNativeDateModule,
   ],
   templateUrl: './input-form.component.html',
   styleUrl: './input-form.component.css',
@@ -51,7 +53,7 @@ export class InputFormComponent {
       validators: [Validators.required, Validators.email],
     }),
     dateOfBirth: new FormControl<Date>(new Date(), {
-      validators: [Validators.required, invalidDateValidator],
+      validators: [Validators.required],
     }),
     firstName: new FormControl('', {
       validators: [Validators.required],
@@ -119,21 +121,13 @@ export class InputFormComponent {
 
     this.user.emit(result);
   }
-}
 
-function invalidDateValidator(
-  control: AbstractControl
-): ValidationErrors | null {
-  if (control.value === '') {
-    return null;
+  getErrors() {
+    if (this.form.controls.dateOfBirth.errors) {
+      return Object.keys(this.form.controls.dateOfBirth.errors);
+    }
+    return [];
   }
-
-  const selectedDate = new Date(control.value);
-
-  if (selectedDate.toDateString() === 'Invalid Date') {
-    return { invalidDate: true };
-  }
-  return null;
 }
 
 function invalidUrlValidator(
