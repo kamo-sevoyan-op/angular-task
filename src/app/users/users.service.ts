@@ -1,6 +1,5 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from './user/user.model';
-import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -67,7 +66,7 @@ export class UsersService {
     this.data.set((++this.maxIndex).toString(), user);
   }
 
-  contains(userId: string){
+  contains(userId: string) {
     return this.data.has(userId);
   }
 }
