@@ -88,8 +88,8 @@ export class InputFormComponent {
   });
 
   setValues() {
-    if (this.userData()) {
-      let user = this.userData()!;
+    let user = this.userData();
+    if (user) {
       let result = { ...user, dateOfBirth: new Date(user.dateOfBirth) };
       this.form.patchValue(result);
     }
