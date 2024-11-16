@@ -1,25 +1,19 @@
 .grid-container {
-    display: grid;
+  display: grid;
 
-    margin-top: 50px;
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-    justify-items: stretch;
-    justify-items: stretch;
-    column-gap: 3rem;
-    row-gap: 1rem;
+  margin-top: 50px;
+  grid-template-columns: 1fr;
+  column-gap: 3rem;
+  row-gap: 1rem;
 }
 
-.wide {
-    width: 40%;
-    height: 50px;
-    border-radius: 10px;
+.grid-container > button {
+  width: 90%;
+  border-radius: 0.5rem;
 }
-
 @media screen and (min-width: 768px) {
-    .grid-container {
-        padding-right: 8rem;
-        grid-template-columns: 1fr 1fr;
-    }    
+  .grid-container {
+    padding-right: 8rem;
+    grid-template-columns: 1fr 1fr;
+  }
 }
-
