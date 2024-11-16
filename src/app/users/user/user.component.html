@@ -1,3 +1,9 @@
+@if (!userExists()){
+<app-fallback />
+} @else {
 <h1>User Details</h1>
-
-<app-input-form [userData]="usersService.getDataById(userId()!)" (user)="onUpdateUser($event)"/>
+<app-input-form
+  [userData]="usersService.getDataById(userId())"
+  (user)="onUpdateUser($event)"
+/>
+}
