@@ -66,4 +66,8 @@ export class UsersService {
   addUser(user: User) {
     this.data.set((++this.maxIndex).toString(), user);
   }
+
+  contains(userId: string){
+    return this.data.has(userId);
+  }
 }
