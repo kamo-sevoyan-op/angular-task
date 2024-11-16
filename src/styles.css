@@ -11,3 +11,15 @@ body {
 body {
   margin: 3rem;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.container > h1 {
+  display: inline-block;
+  margin: 0;
+}
