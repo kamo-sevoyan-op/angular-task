@@ -15,8 +15,10 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   column-gap: 3rem;
+  row-gap: 3rem;
 }
 
 .container > h1 {
