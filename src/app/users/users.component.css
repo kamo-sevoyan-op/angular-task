@@ -1,32 +1,4 @@
 table {
   margin-top: 50px;
-  border-radius: 40px;
-}
-
-.mat-mdc-header-row {
-  background: darkgray;
-}
-
-.mat-mdc-header-row {
-  border-radius: 0 0 1rem 1rem;
-}
-
-.mat-mdc-header-cell:first-child {
-  border-radius: 1rem 0 0 0;
-}
-
-.mat-mdc-header-cell:last-child {
-  border-radius: 0 1rem 0 0;
-}
-
-.mat-mdc-paginator {
-  border-radius: 0 0 1rem 1rem;
-  background-color: whitesmoke;
-  border-top-color: white;
-  border-top-style: solid;
-}
-
-.mat-mdc-cell {
-  border-color: white;
-  background-color: whitesmoke;
+  border-radius: 1rem;
 }
