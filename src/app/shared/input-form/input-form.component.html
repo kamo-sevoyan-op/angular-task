@@ -120,6 +120,10 @@
         <mat-option [value]="elem.value">{{ elem.name }}</mat-option>
         }
       </mat-select>
+
+      @if (form.controls.gender.hasError('required')) {
+        <mat-error>Gender is <strong>required</strong></mat-error>
+        }
     </mat-form-field>
 
     <mat-form-field floatLabel="auto" appearance="outline">
