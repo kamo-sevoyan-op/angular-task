@@ -6,7 +6,7 @@ import { User } from './user/user.model';
 })
 export class UsersService {
   private data = new Map<string, User>();
-  private maxIndex: number = 1;
+  private maxIndex: number = 0;
 
   getDataById(userId: string) {
     return this.data.get(userId);
@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   addUser(user: User) {
-    this.data.set((++this.maxIndex).toString(), user);
+    this.data.set((this.maxIndex++).toString(), user);
   }
 
   contains(userId: string) {
