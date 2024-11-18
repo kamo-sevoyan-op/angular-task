@@ -39,6 +39,7 @@ import { Tel, TelInput } from './tel-input/tel-input';
 export class InputFormComponent {
   userData = input<User>();
   user = output<User>();
+  submitButtonName = input.required<string>();
 
   languages: { name: string; value: string }[] = [
     { name: 'English', value: 'en' },
