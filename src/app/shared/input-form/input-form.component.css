@@ -8,12 +8,14 @@
 }
 
 .grid-container > button {
-  width: 90%;
   border-radius: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .grid-container {
     padding-right: 8rem;
     grid-template-columns: 1fr 1fr;
+  }
+  .grid-container > button {
+    width: 90%;
   }
 }
