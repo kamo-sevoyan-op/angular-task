@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Gender, User } from '../../users/user/user.model';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { Tel, TelInput } from './tel-input/tel-input';
 
 @Component({
   selector: 'app-input-form',
@@ -25,6 +27,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatSelect,
+    TelInput,
+    MatIconModule,
     MatOption,
     MatButtonModule,
     MatNativeDateModule,
@@ -70,10 +74,8 @@ export class InputFormComponent {
     profileImageUrl: new FormControl('', {
       validators: [Validators.required, invalidUrlValidator],
     }),
-    phoneNumber: new FormControl('', {
-      validators: [Validators.required],
-    }),
-    gender: new FormControl('', {
+    phoneNumber: new FormControl<Tel | null>(null),
+    gender: new FormControl<Gender | null>(null, {
       validators: [Validators.required],
     }),
     mainLanguage: new FormControl('', {
@@ -91,7 +93,7 @@ export class InputFormComponent {
     let user = this.userData();
     if (user) {
       let result = { ...user, dateOfBirth: new Date(user.dateOfBirth) };
-      this.form.patchValue(result);
+      this.form.setValue(result);
     }
   }
 
@@ -106,7 +108,7 @@ export class InputFormComponent {
 
     const result = {
       email: this.form.value.email!,
-      dateOfBirth: this.form.value.dateOfBirth!.toString(), // TODO check it later
+      dateOfBirth: this.form.value.dateOfBirth!,
       firstName: this.form.value.firstName!,
       middleName: this.form.value.middleName!,
       lastName: this.form.value.lastName!,
@@ -114,19 +116,11 @@ export class InputFormComponent {
       profileImageUrl: this.form.value.profileImageUrl!,
       nationality: this.form.value.nationality!,
       phoneNumber: this.form.value.phoneNumber!,
-      gender: this.form.value.gender!,
+      gender: this.form.value.gender as Gender,
       mainLanguage: this.form.value.mainLanguage!,
       recitations: this.form.value.recitations!,
     };
-
     this.user.emit(result);
-  }
-
-  getErrors() {
-    if (this.form.controls.dateOfBirth.errors) {
-      return Object.keys(this.form.controls.dateOfBirth.errors);
-    }
-    return [];
   }
 }
 

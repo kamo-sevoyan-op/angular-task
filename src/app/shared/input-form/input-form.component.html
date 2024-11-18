@@ -99,17 +99,19 @@
     </mat-form-field>
 
     <mat-form-field floatLabel="auto" appearance="outline">
-      <mat-label>Phone Number</mat-label>
-      <input
-        type="tel"
-        matInput
-        required
-        [formControl]="form.controls.phoneNumber"
-      />
-      @if (form.controls.phoneNumber.hasError('required')) {
-      <mat-error>Phone number is <strong>required</strong></mat-error>
-      }
+      <mat-label>Phone number</mat-label>
+      <tel-input [formControl]="form.controls.phoneNumber" required></tel-input>
+      <mat-icon matSuffix>phone</mat-icon>
+
+      @if (!form.controls.phoneNumber.hasError('invalidNumber') && form.controls.phoneNumber.hasError('required')){
+        <mat-error>Phone number is <strong>required</strong></mat-error>
+        }
+      @if (form.controls.phoneNumber.hasError('invalidNumber')){
+        <mat-error>Invalid phone number</mat-error>
+        } 
+
     </mat-form-field>
+
 
     <mat-form-field floatLabel="auto" appearance="outline">
       <mat-label>Gender</mat-label>
