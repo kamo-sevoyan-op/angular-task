@@ -3,12 +3,12 @@ import { InputFormComponent } from '../../shared/input-form/input-form.component
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 import { User } from './user.model';
-import { FallbackComponent } from '../../not-found/not-found.component';
+import { NotFoundComponent } from '../../not-found/not-found.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [InputFormComponent, FallbackComponent],
+  imports: [InputFormComponent, NotFoundComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
   providers: [],

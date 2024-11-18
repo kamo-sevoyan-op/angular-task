@@ -9,6 +9,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.css'
 })
-export class FallbackComponent {
+export class NotFoundComponent {
 
 }
