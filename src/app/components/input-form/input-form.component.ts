@@ -12,7 +12,7 @@ import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Gender, User } from '../users/user/user.model';
+import { Gender, User } from '../../pages/user/user.model';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Tel, TelInput } from './tel-input/tel-input';

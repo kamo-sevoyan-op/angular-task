@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-list',
+  selector: 'app-users-table',
   standalone: true,
   imports: [
     MatTableModule,
@@ -23,10 +23,10 @@ import { Router } from '@angular/router';
     MatIconModule,
     MatButtonModule,
   ],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.css',
+  templateUrl: './users-table.component.html',
+  styleUrl: './users-table.component.css',
 })
-export class UsersComponent {
+export class UsersTableComponent {
   usersService = inject(UsersService);
   selectedColumns = [
     'id',
