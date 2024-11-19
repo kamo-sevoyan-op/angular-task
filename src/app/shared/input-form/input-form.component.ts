@@ -39,6 +39,7 @@ import { Tel, TelInput } from './tel-input/tel-input';
 export class InputFormComponent {
   userData = input<User>();
   user = output<User>();
+  cancel = output<void>();
   submitButtonName = input.required<string>();
 
   languages: { name: string; value: string }[] = [
@@ -122,6 +123,10 @@ export class InputFormComponent {
       recitations: this.form.value.recitations!,
     };
     this.user.emit(result);
+  }
+
+  onCancel(){
+    this.cancel.emit();
   }
 }
 

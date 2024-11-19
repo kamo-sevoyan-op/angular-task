@@ -163,8 +163,13 @@
       <mat-error>Recitations is <strong>required</strong></mat-error>
       }
     </mat-form-field>
-    <button mat-fab extended type="submit" [disabled]="form.invalid">
-      {{submitButtonName()}}
-    </button>
+
+    <div class="button-container">
+      <button mat-fab extended type="submit" [disabled]="form.invalid">
+        {{ submitButtonName() }}
+      </button>
+
+      <button mat-fab extended (click)="onCancel()">Cancel</button>
+    </div>
   </div>
 </form>

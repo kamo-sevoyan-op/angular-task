@@ -7,9 +7,17 @@
   row-gap: 1rem;
 }
 
-.grid-container > button {
-  border-radius: 0.5rem;
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10%;
 }
+
+.button-container > button {
+  border-radius: 0.5rem;
+  width: 45%;
+}
+
 @media screen and (min-width: 768px) {
   .grid-container {
     padding-right: 8rem;
