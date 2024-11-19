@@ -16,6 +16,7 @@ import { Gender, User } from '../users/user/user.model';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Tel, TelInput } from './tel-input/tel-input';
+import { isEqual } from 'lodash';
 
 @Component({
   selector: 'app-input-form',
@@ -38,9 +39,11 @@ import { Tel, TelInput } from './tel-input/tel-input';
 })
 export class InputFormComponent {
   userData = input<User>();
+  isNewUser = input.required<boolean>();
   user = output<User>();
   cancel = output<void>();
   submitButtonName = input.required<string>();
+  initialValues: User | null = null;
 
   languages: { name: string; value: string }[] = [
     { name: 'English', value: 'en' },
@@ -96,6 +99,7 @@ export class InputFormComponent {
     if (user) {
       let result = { ...user, dateOfBirth: new Date(user.dateOfBirth) };
       this.form.setValue(result);
+      this.initialValues = user;
     }
   }
 
@@ -125,8 +129,16 @@ export class InputFormComponent {
     this.user.emit(result);
   }
 
-  onCancel(){
+  onCancel() {
     this.cancel.emit();
+  }
+
+  isFormUnchanged(): boolean {
+    return isEqual(this.form.value, this.initialValues);
+  }
+
+  disableLogic() {
+    return (!this.isNewUser() && this.isFormUnchanged()) || this.form.invalid;
   }
 }
 
