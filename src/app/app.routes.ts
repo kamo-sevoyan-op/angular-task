@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomepageComponent } from './pages/home/homepage.component';
 import { UsersComponent } from './components/users/users.component';
-import { UserComponent } from './components/users/user/user.component';
+// import { UserComponent } from './components/users/user/user.component';
 import { NotFoundPageComponent } from './pages/not-found/not-found-page.component';
-import { NewUserComponent } from './components/users/new-user/new-user.component';
+// import { NewUserComponent } from './components/users/new-user/new-user.component';
+import { UserComponent } from './pages/user/user.component';
+
 
 export const routes: Routes = [
     {
@@ -15,8 +17,8 @@ export const routes: Routes = [
         component: UsersComponent
     },
     {
-        path: "new-user",
-        component: NewUserComponent
+        path: "user/new",
+        component: UserComponent
     },
     {
         path: "user/:userId",

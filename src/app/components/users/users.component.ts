@@ -57,6 +57,6 @@ export class UsersComponent {
   }
 
   onCreateUser() {
-    this.router.navigate(['/new-user']);
+    this.router.navigate(['/user', 'new']);
   }
 }

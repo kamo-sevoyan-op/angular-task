@@ -1,0 +1,12 @@
+@if (!isNewUser() && !userExists()){
+<app-not-found />
+} @else {
+<h1>User Details</h1>
+<app-input-form
+  [userData]="usersService.getDataById(userId())"
+  (user)="onUserEvent($event)"
+  (cancel)="onCancel()"
+  [submitButtonName]="submitButtonName()"
+  [isNewUser]="isNewUser()"
+/>
+}
