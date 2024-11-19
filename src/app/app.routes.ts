@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -8,7 +8,7 @@ import { NewUserComponent } from './users/new-user/new-user.component';
 export const routes: Routes = [
     {
         path: "",
-        component: HeaderComponent
+        component: HomepageComponent
     },
     {
         path: "users",

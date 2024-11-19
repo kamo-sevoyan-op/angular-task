@@ -3,10 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-homepage',
   standalone: true,
   imports: [MatButtonModule, RouterLink],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  templateUrl: './homepage.component.html',
+  styleUrl: './homepage.component.css',
 })
-export class HeaderComponent {}
+export class HomepageComponent {}
