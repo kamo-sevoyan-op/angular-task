@@ -4,7 +4,6 @@ import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './user.model';
 import { NotFoundComponent } from '../../components/not-found/not-found.component';
-import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-user',

@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [MatButtonModule, RouterModule],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.css'
+  styleUrl: './not-found.component.css',
 })
-export class NotFoundComponent {
-
-}
+export class NotFoundComponent {}
