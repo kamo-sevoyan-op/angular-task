@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { InputFormComponent } from '../../shared/input-form/input-form.component';
+import { InputFormComponent } from '../../input-form/input-form.component';
 import { User } from '../user/user.model';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../services/users.service';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 

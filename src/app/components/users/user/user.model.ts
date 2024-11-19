@@ -1,5 +1,5 @@
 export type Gender = 'male' | 'female';
-import { Tel } from "../../shared/input-form/tel-input/tel-input";
+import { Tel } from "../../input-form/tel-input/tel-input";
 
 export interface User {
   email: string;
