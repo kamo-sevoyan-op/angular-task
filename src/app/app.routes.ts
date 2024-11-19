@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomepageComponent } from './pages/home/homepage.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/users/user/user.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundPageComponent } from './pages/not-found/not-found-page.component';
 import { NewUserComponent } from './components/users/new-user/new-user.component';
 
 export const routes: Routes = [
@@ -24,6 +24,6 @@ export const routes: Routes = [
     },
     {
         path: "**",
-        component: NotFoundComponent
+        component: NotFoundPageComponent
     }
 ];
