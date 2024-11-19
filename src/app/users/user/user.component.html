@@ -5,6 +5,7 @@
 <app-input-form
   [userData]="usersService.getDataById(userId())"
   (user)="onUpdateUser($event)"
+  (cancel)="onCancel()"
   submitButtonName="Update"
 />
 }

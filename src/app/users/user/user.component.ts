@@ -23,4 +23,8 @@ export class UserComponent {
     this.usersService.updateUserData(this.userId(), event);
     this.router.navigate(['/users']);
   }
+
+  onCancel() {
+    this.router.navigate(['./users']);
+  }
 }
