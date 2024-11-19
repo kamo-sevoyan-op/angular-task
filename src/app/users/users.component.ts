@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { UsersService } from './users.service';
+import { UsersService } from '../services/users.service'
 import { MatTableDataSource } from '@angular/material/table';
 import {
   MatPaginator,

@@ -1,6 +1,6 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { InputFormComponent } from '../../shared/input-form/input-form.component';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { NotFoundComponent } from '../../pages/not-found/not-found.component';
