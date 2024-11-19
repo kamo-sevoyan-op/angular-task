@@ -61,7 +61,7 @@ export class InputFormComponent {
     email: new FormControl('', {
       validators: [Validators.required, Validators.email],
     }),
-    dateOfBirth: new FormControl<Date>(new Date(), {
+    dateOfBirth: new FormControl<Date | null>(null, {
       validators: [Validators.required],
     }),
     firstName: new FormControl('', {
