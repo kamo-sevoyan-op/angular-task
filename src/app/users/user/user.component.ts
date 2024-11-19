@@ -3,7 +3,7 @@ import { InputFormComponent } from '../../shared/input-form/input-form.component
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 import { User } from './user.model';
-import { NotFoundComponent } from '../../not-found/not-found.component';
+import { NotFoundComponent } from '../../pages/not-found/not-found.component';
 
 @Component({
   selector: 'app-user',

@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-fallback',
+  selector: 'app-not-found',
   standalone: true,
   imports: [MatButtonModule, RouterModule],
   templateUrl: './not-found.component.html',
